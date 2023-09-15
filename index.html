@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deswita Girsang</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('pesawat2.jpg'); /* Ganti 'url_gambar_latarmu.jpg' dengan URL atau path ke gambar latar belakang Anda */
+            background-size: cover; /* Untuk mengisi seluruh latar belakang */
+            background-repeat: no-repeat; /* Agar gambar tidak berulang */
+            background-attachment: fixed; /* Membuat gambar latar belakang tetap saat menggulir halaman */
+            opacity: 0.9; /* Efek transparansi (0 hingga 1) */
+        }
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+        nav {
+            background-color: #444;
+            color: white;
+            text-align: center;
+            padding: 5px;
+        }
+        nav a {
+            text-decoration: none;
+            color: white;
+            margin: 0 10px;
+        }
+        section {
+            padding: 20px;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+        .flight-highlights {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.flight-highlight {
+    width: calc(33.33% - 20px); /* Mengatur lebar elemen highlight penerbangan */
+    margin: 10px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.flight-highlight img {
+    max-width: 100%;
+}
+
+.flight-highlight h4 {
+    margin-top: 10px;
+}
+
+.flight-highlight p {
+    margin: 10px 0;
+}
+.flight-highlight {
+    /* CSS lainnya */
+    display: none; /* Sembunyikan elemen "Highlight Penerbangan" secara default */
+}
+
+.flight-highlight:first-child {
+    display: block; /* Tampilkan elemen pertama saat halaman dimuat */
+}
+.flight-highlights {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.5s ease; /* Animasi transformasi untuk pergeseran */
+}
+
+.flight-highlight {
+    width: calc(33.33% - 20px);
+    margin: 10px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    text-align: center;
+    transition: transform 0.5s ease; /* Animasi transformasi untuk elemen "Highlight Penerbangan" */
+}
+
+.flight-highlight img {
+    max-width: 100%;
+}
+.flight-highlight {
+    width: calc(33.33% - 20px);
+    margin: 10px;
+    padding: 10px;
+    background-color: rgba(249, 249, 249, 0.3); /* Warna latar belakang dengan tingkat transparansi */
+    border: 1px solid #ddd;
+    text-align: center;
+    transition: transform 0.5s ease;
+}
+.beli-button {
+    background-color: rgba(0, 0, 0, 0.5); /* Warna latar belakang dengan tingkat transparansi */
+    color: white; /* Warna teks */
+    padding: 10px 20px; /* Padding untuk tombol */
+    border: none;
+    border-radius: 5px; /* Bentuk tombol */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Animasi perubahan warna latar belakang */
+}
+
+.beli-button:hover {
+    background-color: rgba(0, 0, 0, 0.7); /* Warna latar belakang saat tombol dihover */
+}
+#penerbangan {
+            text-align: center;
+        }
+
+        #penerbangan h2,
+        #penerbangan p,
+        #penerbangan h3,
+        #penerbangan ul {
+            text-align: center;
+        }
+
+        #penerbangan ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        #penerbangan li {
+            margin-bottom: 10px;
+        }
+
+        /* Gaya untuk pilihan travel */
+        #penerbangan ul li a {
+            color: #333; /* Warna teks */
+            text-decoration: none;
+            font-size: 18px; /* Ukuran font */
+            transition: color 0.3s; /* Animasi perubahan warna saat dihover */
+        }
+
+        #penerbangan ul li a:hover {
+            color: #FF5733; /* Warna teks saat dihover */
+            font-weight: bold; /* Tebal teks saat dihover */
+        }
+    </style>
+    <script>
+        function showPage(pageName) {
+            var pages = document.getElementsByClassName("page");
+            for (var i = 0; i < pages.length; i++) {
+                pages[i].style.display = "none";
+            }
+            document.getElementById(pageName).style.display = "block";
+        }
+        var currentHighlightIndex = 0; // Indeks elemen "Highlight Penerbangan" saat ini
+
+function slideHighlight(direction) {
+    var highlights = document.getElementsByClassName("flight-highlight");
+    
+    // Sembunyikan semua elemen "Highlight Penerbangan"
+    for (var i = 0; i < highlights.length; i++) {
+        highlights[i].style.display = "none";
+    }
+
+    // Geser indeks sesuai arah
+    currentHighlightIndex += direction;
+
+    // Loop ke awal jika mencapai akhir
+    if (currentHighlightIndex >= highlights.length) {
+        currentHighlightIndex = 0;
+    } else if (currentHighlightIndex < 0) {
+        currentHighlightIndex = highlights.length - 1;
+    }
+
+    // Tampilkan elemen "Highlight Penerbangan" yang sesuai dengan indeks saat ini
+    highlights[currentHighlightIndex].style.display = "block";
+}
+
+// Tampilkan elemen pertama saat halaman dimuat
+slideHighlight(0);
+function beliPaket(namaPaket) {
+    alert("Anda telah membeli paket " + namaPaket + ". Terima kasih!");
+}
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Travelling Luar Negeri</h1>
+        <p>Temukan Penawaran Terbaik untuk Penerbangan Anda</p>
+    </header>
+    <nav>
+        <a href="javascript:void(0);" onclick="showPage('home')">Halaman Utama</a>
+        <a href="javascript:void(0);" onclick="showPage('penerbangan')">Macam Macam Travelling</a>
+        <a href="javascript:void(0);" onclick="showPage('destinasi')">Paket Travelling</a>
+        <a href="javascript:void(0);" onclick="showPage('kontak')">Kontak</a>
+    </nav>
+    <div id="home" class="page">
+        <section>
+            <h2>Selamat datang di Travelling Luar Negeri</h2>
+            <p>Cari dan pesan tiket pesawat dengan harga terbaik untuk tujuan favorit Anda.</p>
+            <p>Rencanakan petualangan luar negeri Anda dengan kami dan temukan pengalaman tak terlupakan.</p>
+            <p>Jelajahi dunia yang penuh keajaiban, dari matahari terbenam di pantai Bali hingga cahaya malam kota New York.</p>
+            <p>Kami menyediakan berbagai pilihan destinasi menarik dan penawaran spesial hanya untuk Anda.</p>
+            <button onclick="showPage('penerbangan')">Temukan Macam macam Travelling & Destinasi anda</button>
+        </section>
+        <section>
+            <h3>Highlight Penerbangan</h3>
+            <div class="flight-highlight">
+                <img src="maladewa-3_169.jpeg" alt="Highlight 1">
+                <h4>Penerbangan Eksklusif ke Maladewa</h4>
+                <p>Nikmati pesona pulau Maladewa dengan penerbangan eksklusif dari kami.</p>
+                <p>Mulai dari Rp 7.000.000</p>
+            </div>
+            <div class="flight-highlight">
+                <img src="santorini.jpeg" alt="Highlight 2">
+                <h4>Penerbangan Romantis ke Santorini</h4>
+                <p>Rasakan keindahan pulau Santorini dengan penerbangan romantis untuk pasangan.</p>
+                <p>Mulai dari Rp 9.000.000</p>
+            </div>
+            <div class="flight-highlight">
+                <img src="patagonia.jpeg" alt="Highlight 3">
+                <h4>Penerbangan Petualangan ke Patagonia</h4>
+                <p>Temukan petualangan tak terlupakan di alam liar Patagonia.</p>
+                <p>Mulai dari Rp 8.500.000</p>
+            </div>
+            <div class="slider-buttons">
+                    <button id="prevButton" onclick="slideHighlight(-1)">&#8249; Previous</button>
+                    <button id="nextButton" onclick="slideHighlight(1)">Next &#8250;</button>
+                </div>
+        </section>
+    </div>
+    <div id="penerbangan" class="page" style="display: none;">
+        <section>
+            <h2 style="text-align: center;">Macam Macam Travelling</h2>
+            <p style="text-align: center;">Temukan berbagai pilihan penerbangan dengan destinasi menarik di seluruh dunia.</p>
+            <h3 style="text-align: center;">Pilihan Traveling</h3>
+            <ul style="list-style: none; padding: 0; text-align: center;">
+                <li style="margin-bottom: 10px;"><a href="javascript:void(0);" onclick="showPage('destinasi')">Bali, Indonesia</a></li>
+                <li style="margin-bottom: 10px;"><a href="javascript:void(0);" onclick="showPage('destinasi')">Paris, Prancis</a></li>    
+            </ul>
+        </section>
+    </div>
+    <div id="destinasi" class="page" style="display: none;">
+        <section>
+            <h2 style="text-align: center;">Paket Travelling</h2>
+            <div class="travel-packages" style="display: flex; justify-content: center;">
+                <div class="travel-package">
+                    <img src="bali.jpeg" alt="Paket Travelling 1">
+                    <h3>Paket Travelling Eksotis Bali</h3>
+                    <p>Nikmati keindahan alam dan budaya Bali dalam paket eksotis kami.</p>
+                    <p>Harga: Rp 5.000.000</p>
+                    <button onclick="beliPaket('Bali')" class="beli-button">Beli</button>
+                </div>
+                <div class="travel-package">
+                    <img src="paris.jpeg" alt="Paket Travelling 2">
+                    <h3>Paket Romantis Paris</h3>
+                    <p>Rasakan romansa kota cinta Paris bersama pasangan Anda.</p>
+                    <p>Harga: Rp 10.000.000</p>
+                    <button onclick="beliPaket('Paris')" class="beli-button">Beli</button>
+                </div>
+                <div class="travel-package">
+                    <img src="canyon.jpeg" alt="Paket Travelling 3" style="width: 50%; height: auto;">
+                    <h3>Paket Petualangan Grand Canyon</h3>
+                    <p>Temukan petualangan tak terlupakan di Grand Canyon, Amerika Serikat.</p>
+                    <p>Harga: Rp 8.000.000</p>
+                    <button onclick="beliPaket('Grand Canyon')" class="beli-button">Beli</button>
+                </div>
+            </div>
+        </section>
+    </div>
+            </div>
+        </section>
+    </div>
+            </div>
+        </section>
+    </div>
+    <div id="kontak" class="page" style="display: none;">
+        <section>
+            <h2>Kontak Kami</h2>
+            <p>Jika Anda memiliki pertanyaan atau butuh bantuan, silakan hubungi kami.</p>
+            <p>Email: deswitagirsangadventureways@gmail.com</p>
+            <p>Telepon: +62 82161362372</p>
+        </section>
+    </div>
+    <footer>
+        <p>Hak Cipta © 2023 Deswita Girsang AdventureWays</p>
+    </footer>
+</body>
+</html>
